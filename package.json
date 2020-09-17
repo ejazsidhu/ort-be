@@ -1,5 +1,5 @@
 {
-  "name": "ORT API",
+  "name": "ORTAPI",
   "version": "0.9.0",
   "description": "Life is too short for LAMP stack",
   "main": "server.js",
