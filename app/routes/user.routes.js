@@ -14,7 +14,7 @@ module.exports = (app) => {
     app.post('/users/create', auth, users.create);
 
     // Retrieve all Users
-    app.get('/users', auth, users.findAll);
+    app.get('/users', users.findAll);
 
     // Retrieve a single User with userId
     app.get('/users/:userId', auth, users.findOne);
