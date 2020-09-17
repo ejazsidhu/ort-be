@@ -1,0 +1,1 @@
+You will need a configuration folder and a db file in it to get this working
