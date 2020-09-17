@@ -14,7 +14,7 @@ module.exports = (app) => {
     app.post('/email/create', email.create);
 
     // Retrieve all email
-    // app.get('/email', email.findAll);
+    app.get('/email', email.findAll);
 
     // Retrieve a single User with userId
     app.get('/email/:emailId', email.findOne);

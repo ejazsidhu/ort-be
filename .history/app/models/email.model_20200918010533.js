@@ -31,7 +31,11 @@ const EmailSchema = mongoose.Schema({
             }
         }
     },
-  
+    password: {
+        type: String,
+        required: true,
+        minLength: 7
+    },
     tokens: [{
         token: {
             type: String,

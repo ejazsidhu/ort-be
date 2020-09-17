@@ -3,24 +3,13 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 const EmailSchema = mongoose.Schema({
-    senderName: {
+    userName: {
         type: String,
         required: true,
         trim: true
     },
-    subject: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    body: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    
  
-    senderEmail: {
+    email: {
         type: String,
         required: true,
         unique: true,
@@ -31,7 +20,11 @@ const EmailSchema = mongoose.Schema({
             }
         }
     },
-  
+    password: {
+        type: String,
+        required: true,
+        minLength: 7
+    },
     tokens: [{
         token: {
             type: String,
