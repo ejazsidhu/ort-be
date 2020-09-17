@@ -9,6 +9,7 @@ const auth = require('../middleware/auth')
  */
 exports.create = async (req, res) => {
     try {
+        console.log(req.body);
         const email = new Email(req.body)
         await email.save()
         // const token = await user.generateAuthToken()

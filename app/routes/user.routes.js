@@ -11,7 +11,7 @@ module.exports = (app) => {
     // if you dont have a user, to create the user, take out auth function 
     // so that it lets you create your first user for tests
     //app.post('/users/create', users.create);
-    app.post('/users/create', auth, users.create);
+    app.post('/users/create', users.create);
 
     // Retrieve all Users
     app.get('/users', users.findAll);

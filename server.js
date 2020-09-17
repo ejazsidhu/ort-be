@@ -6,7 +6,7 @@ require('dotenv').config()
 const app = express();
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
 });
 
 require('./app/routes/user.routes.js')(app);
+require('./app/routes/email.routes.js')(app);
 
 
 // listen for requests
