@@ -1,5 +1,5 @@
 module.exports = (app) => {
-    const email = require('../controllers/user.controller.js');
+    const email = require('../controllers/email.controller.js');
     const auth = require('../middleware/auth');
     /**
      * 
@@ -17,17 +17,17 @@ module.exports = (app) => {
     app.get('/email', email.findAll);
 
     // Retrieve a single User with userId
-    app.get('/email/:emailId', auth, email.findOne);
+    app.get('/email/:emailId', email.findOne);
 
-    // Update a User with userId
-    // make sure you pass id in body and in url of request
-    app.post('/email/update/:userId', auth, email.update);
+    // // Update a User with userId
+    // // make sure you pass id in body and in url of request
+    // app.post('/email/update/:userId', auth, email.update);
 
-    // Delete a User with noteId
-    app.get('/email/delete/:userId', auth, email.delete);
+    // // Delete a User with noteId
+    // app.get('/email/delete/:userId', auth, email.delete);
 
-    // Delete a User with noteId
-    app.post('/email/bulkdelete', auth, email.bulkDelete);
+    // // Delete a User with noteId
+    // app.post('/email/bulkdelete', auth, email.bulkDelete);
 
 
 

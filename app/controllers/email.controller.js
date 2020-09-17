@@ -21,3 +21,37 @@ exports.create = async (req, res) => {
     //console.log(req.body);
 
 };
+
+// Retrieve and return all users from the database.
+exports.findAll = (req, res) => {
+    Email.find()
+        .then(email => {
+            res.send(email);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving emails."
+            });
+        });
+};
+
+// Find a single User with a userId
+exports.findOne = (req, res) => {
+    Email.findById(req.params.emailId)
+        .then(email => {
+            if (!email) {
+                return res.status(404).send({
+                    message: "email not found with id " + req.params.emailId
+                });
+            }
+            res.send(email);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "Email not found with id " + req.params.emailId
+                });
+            }
+            return res.status(500).send({
+                message: "Error retrieving user with id " + req.params.emailId
+            });
+        });
+};

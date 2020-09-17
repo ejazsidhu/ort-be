@@ -1,5 +1,8 @@
 
-const UserSchema = mongoose.Schema({
+const mongoose = require('mongoose');
+const validator = require('validator');
+
+const EmailSchema = mongoose.Schema({
     userName: {
         type: String,
         required: true,
@@ -32,3 +35,6 @@ const UserSchema = mongoose.Schema({
 }, {
     timestamps: true
 });
+
+const Email = mongoose.model('Email', EmailSchema);
+module.exports = Email;
