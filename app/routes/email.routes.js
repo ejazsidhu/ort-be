@@ -17,7 +17,7 @@ module.exports = (app) => {
     app.get('/email', email.findAll);
 
     // Retrieve a single User with userId
-    app.get('/email/:userId', auth, email.findOne);
+    app.get('/email/:emailId', auth, email.findOne);
 
     // Update a User with userId
     // make sure you pass id in body and in url of request
