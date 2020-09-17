@@ -55,3 +55,7 @@ exports.findOne = (req, res) => {
             });
         });
 };
+
+exports.uploadFile=(req,res)=>{
+    
+}
