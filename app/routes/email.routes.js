@@ -19,7 +19,7 @@ module.exports = (app) => {
     // Retrieve a single User with userId
     app.get('/email/:emailId', email.findOne);
 
-    app.post('email/upload',email.uploadFile)
+    app.post('/email/upload',email.uploadFile)
 
     // // Update a User with userId
     // // make sure you pass id in body and in url of request

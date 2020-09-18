@@ -1,6 +1,19 @@
 const express = require('express')
 const Email = require('../models/email.model.js');
-const auth = require('../middleware/auth')
+const auth = require('../middleware/auth');
+const multer = require('multer');
+
+const handleError = (err, res) => {
+    res
+      .status(500)
+      .contentType("text/plain")
+      .end("Oops! Something went wrong!");
+  };
+  
+  const upload = multer({
+    dest: "/email/upload"
+    
+});
 
 /**
  * Create a user
@@ -56,6 +69,28 @@ exports.findOne = (req, res) => {
         });
 };
 
-exports.uploadFile=(req,res)=>{
-    
-}
+exports.uploadFile = (req,res) => {
+    Email.upload(req.file.path)
+    const tempPath = req.file.path;
+    const targetPath = path.join(__upload, "");
+
+    if (path.extname(req.file.upload).toLowerCase() === ".png") {
+      fs.upload(tempPath, targetPath, err => {
+        if (err) return handleError(err, res);
+
+        res
+          .status(200)
+          .contentType("text/plain")
+          .end("File uploaded!");
+      });
+    } else {
+      fs.upload(tempPath, err => {
+        if (err) return handleError(err, res);
+
+        res
+          .status(403)
+          .contentType("text/plain")
+          .end("Only .png files are allowed!");
+    });
+    }
+}        
